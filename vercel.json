@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/enquiries.js", "use": "@vercel/node" },
+    { "src": "**", "use": "@vercel/static" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/sell", "destination": "/#sell-form", "permanent": false },
+    { "source": "/sell.html", "destination": "/#sell-form", "permanent": false }
+  ],
+  "routes": [
+    { "src": "/api/enquiries", "dest": "/api/enquiries.js" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
+  ]
+}

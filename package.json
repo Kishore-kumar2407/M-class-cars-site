@@ -1,0 +1,9 @@
+{
+  "name": "m-class-cars-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "M24 showroom website with Google Sheets enquiry backend",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
